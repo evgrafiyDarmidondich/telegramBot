@@ -1,27 +1,29 @@
-import telebot
+import asyncio
+
 from guard import TOKEN
 
-bot = telebot.TeleBot(TOKEN)
+from aiogram import Bot, Dispatcher
 
-@bot.message_handler(commands=['start', 'hello']) # Фильтр для команд (сработает при вводе /start & /hello)
-def send_welcome(message):
-    bot.send_message(message.chat.id, 'Привет!!!')
 
-@bot.message_handler(commands=['help']) # Фильтр для команд (сработает при вводе /help)
-def help_message(message):
-    bot.send_message(message.chat.id, "Помог чем смог!!!💁🏿")
+async def main():
+    bot = Bot(token=TOKEN)
+    dp = Dispatcher()
 
+    await dp.start_polling(bot)
 
 
 
 
 
 
+if __name__ == '__main__':
+    asyncio.run(main())
 
 
 
 
 
 
-# bot.polling(none_stop=True)
-bot.infinity_polling()
+
+
+
