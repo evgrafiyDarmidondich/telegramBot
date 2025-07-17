@@ -1,6 +1,6 @@
 import asyncio
 
-from guard import TOKEN
+from config import TOKEN
 
 from aiogram import Bot, Dispatcher
 
